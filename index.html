@@ -8,20 +8,50 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="images/logo.png" type="image/png">
-
+    
+        <!--Javascript starts here-->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const cartButtons = document.querySelectorAll(".cart-btn"); 
+                const cartButtons = document.querySelectorAll(".cart-btn");
+                let cartCount = 0;
+
                 cartButtons.forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        alert("Product added to cart!");
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+                        cartCount++;
+                        alert("Product added to cart!\nTotal items in cart: " + cartCount);
+                    });
+                });
+
+                const sendMessageButton = document.querySelector(".btn-send-message");
+                if (sendMessageButton) {
+                    sendMessageButton.addEventListener("click", function (event) {
+                        event.preventDefault(); // prevent the default behavior (e.g., submitting the form)
+                        alert("Message successfully submitted!");
+                    });
+                }
+
+                const addToFavoritesButtons = document.querySelectorAll(".add-to-favorites-btn");
+                addToFavoritesButtons.forEach(function (button) {
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+                        alert("Product added to favorites!");
+                    });
+                });
+
+                const shareButtons = document.querySelectorAll(".share-btn");
+                shareButtons.forEach(function (button) {
+                    button.addEventListener("click", function (event) {
+                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+                        alert("Product shared successfully!");
                     });
                 });
             });
         </script>
-
+        <!--Javascript ends here-->
     </head>
     <body>
+
         <!--header starts--> 
         <header>
             <input type="checkbox" name="" id="toggler">
@@ -37,9 +67,9 @@
 
             </nav>
             <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#cart" class="fas fa-shopping-cart"></a>
-                <a href="#" class="fas fa-user"></a>
+                <a href="#products" class="fas fa-heart"></a>
+                <a href="#products" class="fas fa-shopping-cart"></a>
+                <a href="#contact" class="fas fa-user"></a>
             </div>
         </header>
         <!--header ends-->
@@ -124,9 +154,9 @@
             <div class="images">
                 <img src="images/thai chai.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -140,9 +170,9 @@
             <div class="images">
                 <img src="images/belgian chocolate.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -156,9 +186,9 @@
             <div class="images">
                 <img src="images/choco nut.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -172,9 +202,9 @@
             <div class="images">
                 <img src="images/cranberry orange.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -188,9 +218,9 @@
             <div class="images">
                 <img src="images/fresh orange.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -204,9 +234,9 @@
             <div class="images">
                 <img src="images/hot cinnamon.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -220,9 +250,9 @@
             <div class="images">
                 <img src="images/organic spearmint.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -236,9 +266,9 @@
             <div class="images">
                 <img src="images/organic hot splash.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -252,9 +282,9 @@
             <div class="images">
                 <img src="images/organic peppermint.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -268,9 +298,9 @@
             <div class="images">
                 <img src="images/3 mint enhanced.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -284,9 +314,9 @@
             <div class="images">
                 <img src="images/2 mint chamomile.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -300,9 +330,9 @@
             <div class="images">
                 <img src="images/bourbon vanilla.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -316,9 +346,9 @@
             <div class="images">
                 <img src="images/organic egyptian.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -332,9 +362,9 @@
             <div class="images">
                 <img src="images/fresh provence.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -348,9 +378,9 @@
             <div class="images">
                 <img src="images/Festival Fruit.png" alt="Tea Product Image">
                 <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-heart add-to-favorites-btn"></a>
                     <a href="#" class="cart-btn">add to cart</a>
-                    <a href="#" class="fas fa-share"></a>
+                    <a href="#" class="fas fa-share share-btn"></a>
                 </div>
             </div>
             <div class="content">
@@ -450,9 +480,8 @@
             <input type="text" placeholder="name" class="box">
             <input type="email" placeholder="email" class="box">
             <input type="number" placeholder="number" class="box">
-            <textarea name="" class="box" placeholder="message" cols="" rows="10">
-            </textarea>
-            <input type="submit" value="send message" class="btn">
+            <textarea name="" class="box" placeholder="message" cols="" rows="10"></textarea>
+            <input type="submit" value="send message" class="btn btn-send-message">
         </form>
         <div class="image">
             <img src="images/tea day.png" alt="">
@@ -483,7 +512,7 @@
             <h3>References</h3>
             <a href="https://www.w3schools.com/"> W3schools</a>
             <a href="https://www.simplilearn.com/">Simplilearn</a>
-            <a href="https://dribbble.com/">Dribble</a>
+            <a href="https://artfultea.com/blogs/101/how-to-prepare-tea">Artfultea</a>
             <a href="https://www.flaticon.com/">Flaticon</a>
         </div>
         <div class="box">
