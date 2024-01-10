@@ -8,6 +8,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="images/logo.png" type="image/png">
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cartButtons = document.querySelectorAll(".cart-btn"); 
+                cartButtons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        alert("Product added to cart!");
+                    });
+                });
+            });
+        </script>
+
     </head>
     <body>
         <!--header starts--> 
@@ -26,7 +38,7 @@
             </nav>
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#cart" class="fas fa-shopping-cart"></a>
                 <a href="#" class="fas fa-user"></a>
             </div>
         </header>
