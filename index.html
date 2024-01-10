@@ -12,41 +12,85 @@
         <!--Javascript starts here-->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const cartButtons = document.querySelectorAll(".cart-btn");
-                let cartCount = 0;
-
-                cartButtons.forEach(function (button) {
-                    button.addEventListener("click", function (event) {
-                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
-                        cartCount++;
-                        alert("Product added to cart!\nTotal items in cart: " + cartCount);
-                    });
-                });
-
-                const sendMessageButton = document.querySelector(".btn-send-message");
-                if (sendMessageButton) {
-                    sendMessageButton.addEventListener("click", function (event) {
-                        event.preventDefault(); // prevent the default behavior (e.g., submitting the form)
-                        alert("Message successfully submitted!");
-                    });
-                }
-
-                const addToFavoritesButtons = document.querySelectorAll(".add-to-favorites-btn");
-                addToFavoritesButtons.forEach(function (button) {
-                    button.addEventListener("click", function (event) {
-                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
-                        alert("Product added to favorites!");
-                    });
-                });
-
-                const shareButtons = document.querySelectorAll(".share-btn");
-                shareButtons.forEach(function (button) {
-                    button.addEventListener("click", function (event) {
-                        event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
-                        alert("Product shared successfully!");
-                    });
-                });
+    // Function to smooth scroll to the target section
+    function scrollToSection(targetId) {
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop,
+                behavior: "smooth"
             });
+        }
+    }
+
+    // Function to close the navigation menu
+    function closeNavMenu() {
+        const checkbox = document.getElementById("toggler");
+        if (checkbox.checked) {
+            checkbox.checked = false;
+        }
+    }
+
+    // Event listeners for each navigation link
+    const navLinks = document.querySelectorAll(".navbar a");
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+
+            // Get the target section ID from the href attribute
+            const targetId = link.getAttribute("href").substring(1);
+
+            // Scroll to the target section
+            scrollToSection(targetId);
+
+            // Close the navigation menu
+            closeNavMenu();
+        });
+    });
+
+    const cartButtons = document.querySelectorAll(".cart-btn");
+    let cartCount = 0;
+
+    cartButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+            cartCount++;
+            alert("Product added to cart!\nTotal items in cart: " + cartCount);
+        });
+    });
+
+    const sendMessageButton = document.querySelector(".btn-send-message");
+    if (sendMessageButton) {
+        sendMessageButton.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent the default behavior (e.g., submitting the form)
+
+            const messageInput = document.querySelector(".box[placeholder='message']");
+            const messageContent = messageInput.value.trim();
+
+            if (messageContent === "") {
+                alert("Please enter a message before sending.");
+            } else {
+                alert("Message successfully submitted!");
+            }
+        });
+    }
+
+    const addToFavoritesButtons = document.querySelectorAll(".add-to-favorites-btn");
+    addToFavoritesButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+            alert("Product added to favorites!");
+        });
+    });
+
+    const shareButtons = document.querySelectorAll(".share-btn");
+    shareButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // prevent the default behavior (e.g., navigating to a link)
+            alert("Product shared successfully!");
+        });
+    });
+});
         </script>
         <!--Javascript ends here-->
     </head>
